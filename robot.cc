@@ -5,6 +5,14 @@ const double pi=3.1415926;
 Robot::Robot(){
     
 }
+Robot::Robot(int w,int h,int s):wide(w),high(h){
+    
+    bitmap=new int[w*h];
+    for(int i=0;i<=w*h;i++) {bitmap[i]=0;}
+    number=0;
+    robots=new Node[30];
+    
+}
 
 Robot::~Robot(){
 
