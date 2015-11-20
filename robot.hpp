@@ -1,41 +1,48 @@
 #ifndef ROBOT_HPP
 #define ROBOT_HPP
 
-#include <iostream>
+#include <vector>
 #include "Point.hpp"
-using namespace std;
+#include <cmath>
+
+const double pi=3.1415926;
 
 class Robot{
-public:
-	Robot();
-	~Robot();
-	bool move(int num,double r,double angle); //move the index of num robot, return false if not exist
-	void addRobot(int x=0,int y=0,int v=0);
-	bool delRobot(int num); //delete the robot that index of num, return false if not exist
-	void timepass(int seconds=1);
-	void print();
-	void track();
-	
 private:
-    class Node{
-    public:
-    	Point *curLoc;
-    	Point *htyLoc;
-	    int velocity;
-	    double direction;
-	    Node(int x,int y,int v=0,double d=0):velocity(v),direction(d){
-		}
-		Node(const Node& p){
-			curLoc=new Point(p.curLoc);
-			velocity=p.velocity;
-			direction=p.direction;
-		}
-	};
-	Node *robots;
-	int number;
-	int getXY(int x,int y);
-	int wide,high;
-	int *bitmap;   //size is wide*high
+	Point *curLoc;
+    std::vector<Point*> htyLoc;
+	int velocity;
+	double direction;
+public:
+	Robot(int x=0,int y=0,int v=0,double d=0):velocity(v),direction(d){
+		curLoc=new Point(x,y);
+	}
+	~Robot(){}
+	int getV(){
+		return velocity;
+	}
+	double getDirection(){
+		return direction;
+	}
+	std::vector<Point*> getHistory(){
+		return htyLoc;
+	}
+	Point getCur(){
+		return *curLoc;
+	}
+	int historySize(){
+		return htyLoc.size();
+	}
+	Point historyAt(int n){
+		Point res=*htyLoc[n];
+		return res;
+	}
+	void move(int r,double angle){
+		int addx=r*cos(pi*angle/180);
+        int addy=r*sin(pi*angle/180);
+        htyLoc.push_back(curLoc);
+        curLoc=new Point(curLoc->getX()+addx,curLoc->getY()+addy);
+	}
 };
 
-#endif // ROBOT_H
+#endif // ROBOT_HPP 
