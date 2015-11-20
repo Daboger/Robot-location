@@ -9,13 +9,13 @@ const double pi=3.1415926;
 
 class Robot{
 private:
-	Point *curLoc;
-    std::vector<Point*> htyLoc;
+	Point curLoc;
+    std::vector<Point> htyLoc;
 	int velocity;
 	double direction;
 public:
 	Robot(int x=0,int y=0,int v=0,double d=0):velocity(v),direction(d){
-		curLoc=new Point(x,y);
+		curLoc.change(x,y);
 	}
 	~Robot(){}
 	int getV(){
@@ -24,24 +24,27 @@ public:
 	double getDirection(){
 		return direction;
 	}
-	std::vector<Point*> getHistory(){
+	std::vector<Point> getHistory(){  //return the history points
 		return htyLoc;
 	}
 	Point getCur(){
-		return *curLoc;
+		return curLoc;
 	}
 	int historySize(){
 		return htyLoc.size();
 	}
 	Point historyAt(int n){
-		Point res=*htyLoc[n];
+		Point res=htyLoc[n];\
 		return res;
 	}
-	void move(int r,double angle){
-		int addx=r*cos(pi*angle/180);
-        int addy=r*sin(pi*angle/180);
+	void move(double r,double angle){  //move r distence and direction is angle 
+		double addx=r*cos(angle);
+        double addy=r*sin(angle);
         htyLoc.push_back(curLoc);
-        curLoc=new Point(curLoc->getX()+addx,curLoc->getY()+addy);
+        curLoc.change(addx,addy);
+	}
+	void run(double time){  //accord present direction and velocity, go to the location after "time" seconds
+		move(velocity*time,direction);
 	}
 };
 
