@@ -10,8 +10,7 @@ World::World(const Map& map){
 	m=map;
 }
 
-World::~World(){
-}
+
 
 Point World::getRobot(int num) const{  // return the number num robot's current position
     if(num>robots.size()||num<0){
