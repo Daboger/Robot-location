@@ -1,6 +1,7 @@
+//Robot Location: Class Point
 // Author: Sicheng Liu & Shaobo Liu
-//Class point can show you the coordinate of Robot Location
-//class Point allows you get coordinate and chang it.
+//Class Point can show you the coordinate of Robot Location
+//class Point allows you get coordinate and set it.
 #ifndef POINT_HPP
 #define POINT_HPP
 

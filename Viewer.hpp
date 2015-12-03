@@ -1,6 +1,6 @@
+// //Robot Location: Class Viewer
 // Author: Sicheng Liu & Shaobo Liu
-
-//This Class is used to visualize Robot Position
+//This Class is used to visualize Robot Location
 
 #ifndef VIEWER_HPP
 #define VIEWER_HPP
