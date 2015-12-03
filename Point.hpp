@@ -1,5 +1,5 @@
 //Robot Location: Class Point
-// Author: Sicheng Liu & Shaobo Liu
+//Author: Sicheng Liu & Shaobo Liu
 //Class Point can show you the coordinate of Robot Location
 //class Point allows you get coordinate and set it.
 #ifndef POINT_HPP

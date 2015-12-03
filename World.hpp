@@ -31,7 +31,7 @@ public:
 	bool delRobot(int num); //delete the Robot that index of num, return false if not exist
 	void start(double seconds=1);  //let all robot run for "seconds" seconds
 	int getSize() const; //get the number of Robots
-	Map getMap() const;
+	Map getMap() const; 
 private:
 	std::vector<Robot> robots;
 	Map m;
