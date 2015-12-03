@@ -35,6 +35,13 @@ void World::addRobot(int x,int y,int v){  // add a robot at the nearest road of 
     Robot rob(nearR.getX(),nearR.getY(),v);
     robots.push_back(rob);
 }
+
+bool delRobot(int num){
+	if(num>robots.size()||num<1) return false;
+	robots.erase(num-1);
+	return true;
+}
+
 void World::start(double seconds){  // start all the robots for given time. If they get in touch with obstacles, they will turn right
 /*
 check crash or not and let the robot reflect when they touch the edge of field
