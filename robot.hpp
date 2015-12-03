@@ -1,3 +1,6 @@
+//Robot Location: Class Robot
+// Author: Sicheng Liu & Shaobo Liu
+//This Class is used to show the robot status
 #ifndef ROBOT_HPP
 #define ROBOT_HPP
 
