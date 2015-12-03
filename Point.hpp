@@ -24,13 +24,13 @@ public:
 		x=orig.x;
 		y=orig.y;
 	}
-	void change(double x,double y);
+	void change(double x_,double y_); // change the point by adding (x_,y_)
 	double getX() const;
 	double getY() const;
-	void incX();
-	void incY();
-	void decX();
-	void decY();
+	void incX(); // increase the position of x by one
+	void incY(); // increase the position of y by one
+	void decX(); // decrease the position of x by one
+	void decY(); // decrease the position of y by one
 	friend bool operator==(const Point& a,const Point& b){
 		if(a.x==b.x&&a.y==b.y) return true;
 		return false;

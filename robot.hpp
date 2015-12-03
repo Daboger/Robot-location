@@ -5,7 +5,7 @@
 #include "Point.hpp"
 #include <cmath>
 
-const double pi=3.1415926;
+const double pi=3.141592653589793;
 
 class Robot{
 private:
@@ -18,28 +18,36 @@ public:
 		curLoc.change(x,y);
 	}
 	~Robot(){}
-	int getV(){
+	int getV() const{
 		return velocity;
 	}
-	double getDirection(){
+	double getDirection() const{
 		return direction;
 	}
-	std::vector<Point> getHistory(){  //return the history points
+	std::vector<Point> getHistory() const{  //return the history points
 		return htyLoc;
 	}
-	Point getCur(){
+	Point getCur() const{ // return the current point
 		return curLoc;
 	}
-	int historySize(){
+	void turn(){ // turn right
+		direction-=pi/2;
+	}
+	Point right(){ //return the right point
+		Point res(curLoc);
+		res.change((int)cos(direction-pi/2),(int)sin(direction-pi/2));
+		return res;
+	}
+	int historySize() const{ // return the size of history
 		return htyLoc.size();
 	}
-	Point historyAt(int n){
-		Point res=htyLoc[n];\
+	Point historyAt(int n){  // get the history at n moment
+		Point res=htyLoc[n];
 		return res;
 	}
 	void move(double r,double angle){  //move r distence and direction is angle 
 		double addx=r*cos(angle);
-        double addy=r*sin(angle);
+        double addy=-r*sin(angle);
         htyLoc.push_back(curLoc);
         curLoc.change(addx,addy);
 	}

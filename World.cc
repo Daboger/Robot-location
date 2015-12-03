@@ -1,36 +1,64 @@
 #include "World.hpp"
 #include "Robot.hpp"
 
-World::World(){
-
+World::World(int width,int high){
+	Map tmp(width,high);
+	m=tmp;
 }
 
-World::World(int width,int high){
+World::World(const Map& map){
+	m=map;
 }
 
 World::~World(){
-
 }
 
-Robot* World::getRobot(int num){
-    if(num>robots.size()||num<0) return nullptr;
-    return &robots[num];
+Point World::getRobot(int num) const{  // return the number num robot's current position
+    if(num>robots.size()||num<0){
+    	Point r(-1,-1);
+    	return r;
+    }
+    return robots[num].getCur();
 }
 
-void World::addRobot(int x,int y,int v){
-    
-}
-bool World::delRobot(int num){
-    
+std::vector<Point> World::getHisOf(int num) const{  //return a vector of the number num robot's history
+	if(num>robots.size()||num<0){
+		std::vector<Point> r;
+		return r;
+	}
+	return robots[num].getHistory();
 }
 
-void World::start(int seconds){
+void World::addRobot(int x,int y,int v){  // add a robot at the nearest road of (x,y) and velocity is v
+    Point loc(x,y);
+    Point nearR(m.findNearRoad(loc));
+    Robot rob(nearR.getX(),nearR.getY(),v);
+    robots.push_back(rob);
+}
+void World::start(double seconds){  // start all the robots for given time. If they get in touch with obstacles, they will turn right
 /*
 check crash or not and let the robot reflect when they touch the edge of field
 */
-
+    Map virtualMap(m);
+    for(double i=0;i<seconds;i+=0.1){
+    	for(int j=0;j<robots.size();j++){
+    		virtualMap.set(robots[j].getCur(),1);
+    		robots[j].run(0.1);
+    		while(!virtualMap.judgeRoad(robots[j].getCur())){
+    			robots[j].run(-0.1);
+    			robots[j].turn();
+    			robots[j].run(0.1);
+    		}
+    		virtualMap.set(robots[j].getCur());
+    	}
+    }
 }
 
-int World::getSize(){
+int World::getSize() const{
 	return robots.size();
+}
+
+Map World::getMap() const{
+	Map res(m);
+	return res;
 }
