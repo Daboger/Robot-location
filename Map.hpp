@@ -1,3 +1,5 @@
+//this class includes information about map, in this map, 0 is obstacle, 1 is road,255 is the location of the car. there are 3 constraction function. if only input w, h, there will be a 400*300 flat land. if input filename, there will be a map according to the information(judgeroad), judge whether the points are a road.Point findNearRoad is a way to find the nearest road.
+
 #ifndef MAP_HPP
 #define MAP_HPP
 
