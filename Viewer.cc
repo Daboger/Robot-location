@@ -25,9 +25,9 @@ void Viewer::print(char* f){
 	}
 }
 
-void Viewer::toPostSc(char* f){
+void Viewer::toPostSc(char* f){//this part is to add postscript to draw lines the track of robots
 	std::ofstream file(f);
-	for(int i=0;i<content.getH();i++){
+	for(int i=0;i<content.getH();i++){//the whole map
 		int start=-1,end=0;
 		for(int j=0;j<content.getW();j++){
 			if(content.get(j,i)==1){
