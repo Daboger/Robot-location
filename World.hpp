@@ -1,3 +1,7 @@
+//Robot Location: Class World
+// Author: Sicheng Liu & Shaobo Liu
+//Class World creat a boundary for Robots
+//You can add a new robot, show its position and find the total number of them.
 #ifndef WORLD_HPP
 #define WORLD_HPP
 
