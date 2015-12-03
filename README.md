@@ -5,15 +5,15 @@
 class Robot<br>
 *bitmap is a matrix which size is wide*high, the point without robot will be zeros. and the points have robot on it will be the label of the robot.
 
-Our input is a matrix, in which 0 represents obstacles 1 represents roads, the Robot.txt is the input of robots:
+Our input is a matrix, in which 0 represents obstacles 1 represents roads, the Robot.txt is the input of robots:<br>
 /*
-5
-0 1 5
-50 45 10
-100 324 9
-200 120 15
-300 480 7
-*/
+5<br>
+0 1 5<br>
+50 45 10<br>
+100 324 9<br>
+200 120 15<br>
+300 480 7<br>
+*/<br>
 first row means the number of robots, follows x, y, and velocity.
 
 &nbsp;&nbsp;&nbsp;&nbsp;bool move(int,double,double); //move the index of num robot, return false if not exist<br>
