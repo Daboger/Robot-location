@@ -32,6 +32,7 @@ public:
 	}
 	void printRobotAt(char* f,int num); //print out the map and number num robot out
 	void print(char* f); // print out the map and all the robot current location
+	void toPostSc(char* f); // get the postScript code for this map
 //	void trackRobotAt(char* f,int num); //print out the map and number num robot track
 	void track(char* f); // print out the track of all the robot
 	void status(){

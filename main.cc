@@ -33,5 +33,6 @@ int main() {
 	char* res="output.txt";
 	Viewer v(workplant);
 	v.print(res);
+	v.toPostSc("postScript.ps");
 	v.status();
 }
