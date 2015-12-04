@@ -35,9 +35,9 @@ void World::addRobot(int x,int y,int v){  // add a robot at the nearest road of 
     robots.push_back(rob);
 }
 
-bool delRobot(int num){
+bool World::delRobot(int num){
 	if(num>robots.size()||num<1) return false;
-	robots.erase(num-1);
+	robots.erase(robots.begin()+num-1);
 	return true;
 }
 
@@ -49,12 +49,8 @@ check crash or not and let the robot reflect when they touch the edge of field
     for(double i=0;i<seconds;i+=0.1){
     	for(int j=0;j<robots.size();j++){
     		virtualMap.set(robots[j].getCur(),1);
-    		robots[j].run(0.1);
-    		while(!virtualMap.judgeRoad(robots[j].getCur())){
-    			robots[j].run(-0.1);
+    		while(!robots[j].run(0.1,Map m))
     			robots[j].turn();
-    			robots[j].run(0.1);
-    		}
     		virtualMap.set(robots[j].getCur());
     	}
     }
