@@ -52,7 +52,7 @@ public:
 	bool move(double r, double angle, Map m) {  //move r distence and direction is angle 
 		double addx = r*cos(angle);
 		double addy = -r*sin(angle);
-		if (!m.judgeRoad(Point(curLoc.getX() + addx, curLoc.getY() + addy)))
+		if (!m.judgeRoad(Point(curLoc.getX() + addx, curLoc.getY() + addy)))//insert the judgement before change direction
 			return false;
 		else {
 			htyLoc.push_back(curLoc);
