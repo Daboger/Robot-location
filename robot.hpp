@@ -49,14 +49,7 @@ public:
 		Point res=htyLoc[n];
 		return res;
 	}
-	/*
-	void move(double r,double angle){ //move r distence and direction is angle
-	double addx=r*cos(angle);
-	double addy=-r*sin(angle);
-	htyLoc.push_back(curLoc);
-	curLoc.change(addx,addy);
-	*/
-	bool move(double r, double angle, Map m) {  //move r distence and direction is angle 
+		bool move(double r, double angle, Map m) {  //move r distence and direction is angle
 		double addx = r*cos(angle);
 		double addy = -r*sin(angle);
 		if (!m.judgeRoad(Point(curLoc.getX() + addx, curLoc.getY() + addy)))//insert the judgement before change direction
@@ -67,11 +60,7 @@ public:
 			return true;
 		}
 	}
-	/*
-	void run(double time){//accord present direction and velocity, go to location after "time" seconds
-	move(velocity*time,direction);
-	*/
-	bool run(double time,Map m){  //accord present direction and velocity, go to the location after "time" seconds
+		bool run(double time,Map m){  //accord present direction and velocity, go to the location after "time" seconds
 		return move(velocity*time,direction,m);
 	}
 };
