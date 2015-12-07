@@ -28,5 +28,5 @@ World.o: World.cc
 World.cc: World.hpp
 	touch World.cc
 
-main.cc: Map.hpp Point.hpp Viewer.hpp World.hpp
+main.cc: Map.hpp Point.hpp Viewer.hpp World.hpp Robot.hpp
 	touch main.cc
