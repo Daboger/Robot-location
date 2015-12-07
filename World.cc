@@ -55,7 +55,7 @@ check crash or not and let the robot reflect when they touch the edge of field
 			while(!virtualMap.judgeRoad(robots[j].getCur())){
 			robots[j].run(-0,1);
 			*/
-    		while(!robots[j].run(0.1,Map m))
+    		while(!robots[j].run(0.1,&virtualMap))
     			robots[j].turn();
 			//robots[j].run(0.1);
     		virtualMap.set(robots[j].getCur());

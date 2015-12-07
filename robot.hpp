@@ -49,10 +49,10 @@ public:
 		Point res=htyLoc[n];
 		return res;
 	}
-		bool move(double r, double angle, Map m) {  //move r distence and direction is angle
+	bool move(double r, double angle, Map* m) {  //move r distence and direction is angle
 		double addx = r*cos(angle);
 		double addy = -r*sin(angle);
-		if (!m.judgeRoad(Point(curLoc.getX() + addx, curLoc.getY() + addy)))//insert the judgement before change direction
+		if (!m->judgeRoad(Point(curLoc.getX() + addx, curLoc.getY() + addy)))//insert the judgement before change direction
 			return false;
 		else {
 			htyLoc.push_back(curLoc);
@@ -60,7 +60,7 @@ public:
 			return true;
 		}
 	}
-		bool run(double time,Map m){  //accord present direction and velocity, go to the location after "time" seconds
+	bool run(double time,Map* m){  //accord present direction and velocity, go to the location after "time" seconds
 		return move(velocity*time,direction,m);
 	}
 };

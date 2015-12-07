@@ -15,8 +15,6 @@ class World{
 public:
 	World(int width=400,int high=300);
 	World(const Map& map);
-
-
 	Point getRobot(int num) const; //return the robot current point
 	std::vector<Point> getHisOf(int num) const;
 	void addRobot(int x=0,int y=0,int v=0); //add Robot to World
