@@ -33,6 +33,6 @@ int main() {
 	char* res="output.txt";
 	Viewer v(workplant);
 	v.print(res);
-	v.toPostSc("postScript.ps");//creat postScript .ps to draw lines in ghostscript
+	v.track("postScript.ps"); //creat postScript .ps to draw lines in ghostscript
 	v.status();
 }
