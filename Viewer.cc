@@ -56,20 +56,22 @@ void Viewer::toPostSc(char* f){//this part is to add postscript to draw lines th
 void Viewer::track(char* f){
 	std::ofstream file(f);
 	for(int i=0;i<posOfRobots.size();i++){
-		file<<tracks[i][0].getX()<<" "<<tracks[i][0].getY()<<" moveto"<<'\n';
+		file<<(int)tracks[i][0].getX()<<" "<<(int)tracks[i][0].getY()<<" moveto"<<'\n';
 		for(int j=0;j<tracks[i].size();j++){
-			file<<tracks[i][j].getX()<<" "<<tracks[i][j].getY()<<" lineto"<<'\n';
+			file<<(int)tracks[i][j].getX()<<" "<<(int)tracks[i][j].getY()<<" lineto"<<'\n';
 		}
+		file<<(int)posOfRobots[i].getX()<<" "<<(int)posOfRobots[i].getY()<<" lineto"<<'\n';
 	}
 	file<<"stroke";
 }
 
-void trackRobotAt(char* f,int num){
+void Viewer::trackRobotAt(char* f,int num){
 	if(num<0||num>=posOfRobots.size()) return;
 	std::ofstream file(f);
-	file<<tracks[num][0].getX()<<" "<<tracks[num][0].getY()<<" moveto"<<'\n';
+	file<<(int)tracks[num][0].getX()<<" "<<(int)tracks[num][0].getY()<<" moveto"<<'\n';
 	for(int i=0;i<tracks[num].size();i++){
-		file<<tracks[num][j].getX()<<" "<<tracks[num][j].getY()<<" lineto"<<'\n';
+		file<<(int)tracks[num][i].getX()<<" "<<(int)tracks[num][i].getY()<<" lineto"<<'\n';
 	}
+	file<<(int)posOfRobots[num].getX()<<" "<<(int)posOfRobots[num].getY()<<" lineto"<<'\n';
 	file<<"stroke";
 }

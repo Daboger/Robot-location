@@ -35,6 +35,7 @@ public:
 		return curLoc;
 	}
 	void turn(){ // turn right
+		htyLoc.push_back(curLoc);
 		direction-=pi/2;
 	}
 	Point right(){ //return the right point
@@ -55,7 +56,7 @@ public:
 		if (!m->judgeRoad(Point(curLoc.getX() + addx, curLoc.getY() + addy)))//insert the judgement before change direction
 			return false;
 		else {
-			htyLoc.push_back(curLoc);
+//			htyLoc.push_back(curLoc);
 			curLoc.change(addx, addy);
 			return true;
 		}
